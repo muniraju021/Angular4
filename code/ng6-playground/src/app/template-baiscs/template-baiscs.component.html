@@ -1,0 +1,57 @@
+<h3>Objet Binding</h3>
+<p>
+  Name: {{myObject.name}} <br>
+  Age: {{myObject.age}} <br>
+  Location: {{myObject.location}}
+</p>
+<hr>
+<h3>Binding Array</h3>
+<div *ngFor="let emp of lstEmp">
+  Name: {{emp.name}} <br>
+  Age: {{emp.age}} <br>
+  Location: {{emp.location}}
+  <hr>
+</div>
+<h3>Conditional Binding Type 1</h3>
+<div *ngFor="let emp of lstEmp">
+  <p *ngIf="emp.name == 'Muni'">
+      Name: {{emp.name}} <br>
+      Age: {{emp.age}} <br>
+      Location: {{emp.location}}
+  </p>    
+</div>
+<!-- Template Binding  type using ngTemplateOutlet -->
+<hr>
+<h3>Conditional Template Binding Type 2</h3>
+<div *ngFor='let emp of lstEmp'>
+  <ng-container
+    [ngTemplateOutlet]="emp.name == 'Muni' ? successTemp : FailureTemp" 
+    [ngTemplateOutletContext]="{emp:emp}">
+  </ng-container>
+</div>
+<ng-template #successTemp let-emp='emp'>
+    <b>Name:</b> {{emp.name}}
+  </ng-template>
+  
+  <ng-template #FailureTemp let-emp='emp'>
+    Not Found!!! - instead found <b>{{emp.name}}</b> 
+  </ng-template> 
+
+  <!-- Template Binding  type without using ngTemplateOutlet -->
+  <hr>
+<h3>Conditional Template Binding Type 3</h3>
+<div *ngFor='let emp of lstEmp'>
+  <ng-container *ngIf="emp.name == 'Muni'; then printSuccess else printFailure">
+  </ng-container>
+  <ng-template #printSuccess>
+    Found Name: <b>{{emp.name}}</b>
+  </ng-template>
+  <ng-template #printFailure>
+    Not Found !!! Instead foumd <b>{{emp.name}}</b>
+  </ng-template>
+</div>
+
+
+
+
+

@@ -1,0 +1,10 @@
+Angular 4
+Setup 
+1. Install nodejs
+	https://nodejs.org/en/download/ 
+2. Install npm and angular from angular/cli - refer below link
+	https://cli.angular.io/ 
+
+Commands:
+node -v => gives nodejs version
+ng -v => gives angular version
