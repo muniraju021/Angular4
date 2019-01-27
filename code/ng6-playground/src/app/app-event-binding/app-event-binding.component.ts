@@ -17,6 +17,7 @@ export class AppEventBindingComponent implements OnInit {
   }
 
   mouseover(event){
+    console.log("mouse over event fired");
     console.log(event);
   }
 }
